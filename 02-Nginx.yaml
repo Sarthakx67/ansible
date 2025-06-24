@@ -5,7 +5,7 @@
     - name: install nginx
       ansible.builtin.apt: 
         name: nginx
-        state: present
+        state: present #present for apt/  installed for yum
     - name: Start nginx
       ansible.builtin.service:
         name: nginx
