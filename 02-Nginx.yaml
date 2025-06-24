@@ -2,7 +2,7 @@
   hosts: nodes
   tasks:
     - name: install nginx
-      ansible.builtin.yum:
+      ansible.builtin.apt:
         name: nginx
         stete: installed
     - name: Start nginx
