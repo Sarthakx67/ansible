@@ -1,0 +1,11 @@
+- name: installing nginx using playbook
+  hosts: nodes
+  tasks:
+    - name: install nginx
+      ansible.builtin.yum:
+        name: nginx
+        stete: installed
+    - name: Start nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
