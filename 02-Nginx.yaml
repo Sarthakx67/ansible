@@ -1,8 +1,9 @@
 - name: installing nginx using playbook
-  hosts: nodes
-  tasks:
+  hosts: nodes #Group of node
+  become: yes #for root access
+  tasks: #tasks/Collection/modules to run
     - name: install nginx
-      ansible.builtin.apt:
+      ansible.builtin.apt: 
         name: nginx
         stete: installed
     - name: Start nginx
