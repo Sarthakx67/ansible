@@ -1,0 +1,5 @@
+- name: accessing variable stored in inventory
+  hosts: nodes
+  tasks:
+    ansible.builtin.debug:
+      msg: "print variable username: {{NODES_USERNAME}} and database: {{NODES_DB}}"
