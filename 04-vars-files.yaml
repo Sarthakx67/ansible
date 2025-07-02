@@ -1,6 +1,6 @@
 - name: using variables.yaml file to access variables
   hosts: nodes
-  vars_files:
+  vars_files: # to tell yaml file to use variables.yaml for accessing variables
   - variables.yaml
   tasks:
     - name: my info
