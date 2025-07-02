@@ -1,0 +1,13 @@
+- name: using variable from prompts #for getting data like username/password which should not be stored
+  hosts: localhost
+  vars_prompt: #storing prompts in this key
+  - name: USERNAME
+    prompt: please enter your username
+    private: false #you can see values entered in screen
+  - name: PASSWORD
+    prompt: please enter your password
+    private: true #you cannot see the values entered in screen
+  tasks:
+    - name: "printing username and password"
+      ansible.builtin.debug:
+        msg: "Username entered = {{USERNAME}} and password entered is {{PASSWORD}}"
