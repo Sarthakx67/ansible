@@ -1,0 +1,30 @@
+- name: using task level variable with play level variable
+# play level variable are parent variables
+# task level variable are childern variables 
+# children variables can override/ add variables in task level variable
+
+- name: variables at task level
+  hosts: nodes
+  #creating a parent variable
+  vars:
+    MONEY: "1 MILLION"
+    LAND: "100 ACRE"
+    HOUSE: "100 CRORE"
+  tasks:
+    - name: parent property
+      ansible.builtin.debug:
+        msg: "parent networth = {{MONEY}} {{HOUSE}} {{LAND}}"
+    - name: childern 1 property after inheritance from parent
+      vars:
+      MONEY: "2 MILLION"
+      LAND: "200 ACRE"
+      ansible.builtin.debug:
+        msg: "childern 1 networth = {{MONEY}} {{HOUSE}} {{LAND}}"
+    - name: childern 2 property after inheritance from parent
+      vars:
+      MONEY: "100 MILLION"
+      LAND: "400 ACRE"
+      HOUSE: "300 CRORE"
+      ansible.builtin.debug:
+        msg: "childern 2 networth = {{MONEY}} {{HOUSE}} {{LAND}}"
+    
