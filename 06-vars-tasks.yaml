@@ -16,15 +16,16 @@
         msg: "parent networth = {{MONEY}} {{HOUSE}} {{LAND}}"
     - name: childern 1 property after inheritance from parent
       vars:
-      MONEY: "2 MILLION"
-      LAND: "200 ACRE"
+        MONEY: "2 MILLION"
+        LAND: "200 ACRE"
       ansible.builtin.debug:
         msg: "childern 1 networth = {{MONEY}} {{HOUSE}} {{LAND}}"
     - name: childern 2 property after inheritance from parent
       vars:
-      MONEY: "100 MILLION"
-      LAND: "400 ACRE"
-      HOUSE: "300 CRORE"
+        MONEY: "100 MILLION"
+        LAND: "400 ACRE"
+        HOUSE: "300 CRORE"
+        HORSE: "15 CRORE"
       ansible.builtin.debug:
-        msg: "childern 2 networth = {{MONEY}} {{HOUSE}} {{LAND}}"
+        msg: "childern 2 networth = {{MONEY}} {{HOUSE}} {{LAND}} {{HORSE}}"
     
