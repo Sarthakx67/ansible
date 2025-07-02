@@ -1,7 +1,13 @@
 - name: ansible variables playbook
   hosts: nodes
+  vars:
+    date: 02-07-2025
+    name: sarthak
+    surname: chaudhary  
   tasks:
     - name: print using ansible
       ansible.builtin.debug:
         msg: "World Will Be A Better Place Without You"
-    
+    - name: using variable
+      ansible.builtin.debug:
+        msg: "hello World my name is {{name}} {{surname}} today is {{date}}"
