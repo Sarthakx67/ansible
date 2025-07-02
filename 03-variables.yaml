@@ -3,5 +3,5 @@
   tasks:
     - name: print using ansible
       ansible.builtin.debug:
-        echo: "World Will Be A Better Place Without You"
+      msg: "World Will Be A Better Place Without You"
     
