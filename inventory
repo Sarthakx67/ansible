@@ -1,2 +1,4 @@
 [nodes]
 node1 ansible_host=35.154.82.196
+[localhost]
+localhost1 ansible_host=192.168.145.129

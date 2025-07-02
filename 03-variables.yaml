@@ -1,0 +1,7 @@
+- name: ansible variables playbook
+  hosts: localhost
+  tasks:
+    - name: print using ansible
+      ansible.builtin.debug:
+        echo: "World Will Be A Better Place Without You"
+    
