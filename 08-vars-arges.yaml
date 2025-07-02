@@ -1,0 +1,9 @@
+# using variables from cli 
+# to give variable we will use -e 
+
+- name: Getting Variables from command line
+  hosts: localhost
+  tasks:
+    - name: printing variables
+      ansible.builtin.debug:
+        msg: "how much are your headphones worth: {{PRICE}}"
