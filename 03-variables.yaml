@@ -1,5 +1,5 @@
 - name: ansible variables playbook
-  hosts: localhost
+  hosts: nodes
   tasks:
     - name: print using ansible
       ansible.builtin.debug:
