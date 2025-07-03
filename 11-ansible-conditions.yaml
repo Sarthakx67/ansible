@@ -1,23 +1,35 @@
 - name: creating ansible playbook to check user
   hosts: localhost
   tasks:
+  # Get Output from Command 
     - name: cmd command to work with ansible
       ansible.builtin.command: id roboshop
       register: output # {{output}} is the variable name  
-      ignore_errors: True
+      ignore_errors: True # used to ignore error
+#   check by printing output
     - name: print output
       ansible.builtin.debug:
        msg: "{{output}}"
+#   only printing rc value from output
     - name: only printing output status
       ansible.builtin.debug:
         msg: "{{output.rc}}"
+#   using output.rc to check if user is present or not
+    # if output.rc !=  0 we will create a user
     - name: create/adduser roboshop if not exist
       ansible.builtin.user:
-        name: roboshop
+        name: roboshop   # ADD ROBOSHOP USER
       when: output.rc != 0
-    - name: removing added user roboshop
+
+#     now output.rc == 0
+    - name: deleted created user
       ansible.builtin.user:
         name: roboshop
         state: absent
         remove: yes
+      when: output.rc == 0
 
+    - name: output after deletion
+      ansible.builtin.command: id roboshop
+      register: output.rc
+      ignore_errors: True
