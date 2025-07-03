@@ -1,0 +1,13 @@
+- name: creating ansible playbook to check user
+  hosts: localhost
+  tasks:
+    - name: cmd command to work with ansible
+      ansible.builtin.command: id roboshop
+      register: id roboshop
+      ignore_errors: True
+    # - name: create/adduser roboshop if not exist
+    #   ansible.builtin.user:
+    #     name: roboshop
+    - name: print output
+      ansible.builtin.debug:
+       msg: "{{register}}"
