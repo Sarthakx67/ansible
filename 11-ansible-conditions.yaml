@@ -3,11 +3,11 @@
   tasks:
     - name: cmd command to work with ansible
       ansible.builtin.command: id roboshop
-      register: id roboshop
+      register: output # {{output}} is the variable name  
       ignore_errors: True
     # - name: create/adduser roboshop if not exist
     #   ansible.builtin.user:
     #     name: roboshop
     - name: print output
       ansible.builtin.debug:
-       msg: "{{register}}"
+       msg: "{{output}}"
