@@ -3,7 +3,11 @@
   vars:
     NAME: Sarthak
   tasks:
-    - name: print Only if NAME==DevOps
+    - name: print Only if NAME==Sarthak
       ansible.builtin.debug:
         msg: "Hello {{NAME}}"
       when: NAME == "Sarthak"
+    - name: print Only if NAME==DevOps
+      ansible.builtin.debug:
+        msg: "Hello {{NAME}}" 
+      when: NAME == "DevOps" 
