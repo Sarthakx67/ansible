@@ -15,3 +15,9 @@
       ansible.builtin.user:
         name: roboshop
       when: output.rc != 0
+    - name: removing added user roboshop
+      ansible.builtin.user:
+        name: roboshop
+        state: absent
+        remove: yes
+
