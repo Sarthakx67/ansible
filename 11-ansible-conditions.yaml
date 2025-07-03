@@ -31,5 +31,9 @@
 
     - name: output after deletion
       ansible.builtin.command: id roboshop
-      register: output.rc
+      register: output
       ignore_errors: True
+
+    - name: printing output status after deletion
+      ansible.builtin.debug:
+        msg: "{{output.rc}}"
