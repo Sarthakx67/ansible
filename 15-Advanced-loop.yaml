@@ -4,6 +4,10 @@
   tasks: 
     - name: using map inside list of loop
       ansible.builtin.apt:
-        name: "nginx"
-        state: "present"
-        
+        name: "{{item.name}}"
+        state: "{{item.state}}"
+      loop:
+        {name: 'nginx' ,state: 'absent'}
+        {name: 'postfix' ,state: 'present'}
+        {name: 'mailx' ,state: 'absent'}
+        {name: 'apache' ,state: 'present'}
