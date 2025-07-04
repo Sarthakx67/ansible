@@ -24,6 +24,7 @@
     - name: get output of playbook
       ansible.builtin.command: systemctl status {{item.name}}
       register: output
+      ignore_errors: True
       loop:
       - {name: 'nginx' ,state: 'present'}
       - {name: 'postfix' ,state: 'present'}
