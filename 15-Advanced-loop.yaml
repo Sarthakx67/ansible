@@ -11,3 +11,14 @@
       - {name: 'postfix' ,state: 'present'}
       - {name: 'mailx' ,state: 'absent'}
       - {name: 'net-tools' ,state: 'present'}
+    - name: start nginx
+      ansible.builtin.system:
+        name: nginx
+        state: started
+    - name: get output of playbook
+      ansible.builtin.command: systemctl status nginx
+      register: output
+    - name: print output
+      ansible.builtin.debug:
+        msg: "{{output}}" 
+    
