@@ -3,7 +3,7 @@
   become: yes
   tasks: 
     - name: using map inside list of loop
-      ansible.builtin.apt-get:
+      ansible.builtin.apt:
         name: "{{item.name}}"
         state: "{{item.state}}"
       loop:
