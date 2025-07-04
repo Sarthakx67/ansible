@@ -15,7 +15,7 @@
       ansible.builtin.service:
         name: "{{item.names}}"
         state: started
-      when: present == "{{item.state}}" 
+      ignore_errors: True
       loop:
       - {names: 'nginx' ,state: 'present'}
       - {names: 'postfix' ,state: 'present'}
