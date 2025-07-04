@@ -8,4 +8,4 @@
         state: present
       loop:
       - nginx
-      - postman
+      - postmap
