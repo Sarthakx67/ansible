@@ -1,0 +1,10 @@
+- name: install packages using loop in nodes using loop in ansible playbook
+  hosts: nodes
+  tasks:
+    - name: install packages
+      ansible.builtin.yum:
+        name: "{{item}}"
+        state: installed
+      loop:
+      - nginx
+      - postman
