@@ -1,5 +1,6 @@
 - name: install packages using loop in nodes using loop in ansible playbook
   hosts: nodes
+  become: yes
   tasks:
     - name: install packages
       ansible.builtin.yum:
