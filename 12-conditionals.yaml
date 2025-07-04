@@ -6,8 +6,8 @@
     - name: print Only if NAME==Sarthak
       ansible.builtin.debug:
         msg: "Hello {{NAME}}"
-      when: NAME == "Sarthak"
+      when: NAME == "Sarthak" #if this expression is true module will run
     - name: print Only if NAME==DevOps
       ansible.builtin.debug:
-        msg: "Hello {{NAME}}" 
+        msg: "Hello {{NAME}}" #this will not get printed due to the condition
       when: NAME == "DevOps" 
