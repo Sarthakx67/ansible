@@ -13,13 +13,13 @@
       - {name: 'net-tools' ,state: 'present'}
     - name: start 
       ansible.builtin.service:
-        name: {{item.name}}
+        name: "{{item.names}}"
         state: started
       loop:
-      - {name: 'nginx' ,state: 'present'}
-      - {name: 'postfix' ,state: 'present'}
-      - {name: 'mailx' ,state: 'absent'}
-      - {name: 'net-tools' ,state: 'present'}
+      - {names: 'nginx' ,state: 'present'}
+      - {names: 'postfix' ,state: 'present'}
+      - {names: 'mailx' ,state: 'absent'}
+      - {names: 'net-tools' ,state: 'present'}
     - name: get output of playbook
       ansible.builtin.command: systemctl status {{item.name}}
       register: output
@@ -31,9 +31,3 @@
     - name: print output
       ansible.builtin.debug:
         msg: "{{output}}" 
-      loop:
-      - {name: 'nginx' ,state: 'present'}
-      - {name: 'postfix' ,state: 'present'}
-      - {name: 'mailx' ,state: 'absent'}
-      - {name: 'net-tools' ,state: 'present'}
-      
