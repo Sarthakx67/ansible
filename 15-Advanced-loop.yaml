@@ -11,9 +11,9 @@
       - {name: 'postfix' ,state: 'present'}
       - {name: 'mailx' ,state: 'absent'}
       - {name: 'net-tools' ,state: 'present'}
-    - name: start nginx
+    - name: start 
       ansible.builtin.service:
-        name: nginx
+        name: {{item.name}}
         state: started
     - name: get output of playbook
       ansible.builtin.command: systemctl status nginx
