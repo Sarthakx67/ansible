@@ -1,0 +1,9 @@
+- name: advanced package installer using loop
+  hosts: nodes
+  become: yes
+  tasks: 
+    - name: using map inside list of loop
+      ansible.builtin.apt:
+        name: "nginx"
+        state: "present"
+        
