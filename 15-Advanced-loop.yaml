@@ -16,7 +16,7 @@
         name: {{item.name}}
         state: started
     - name: get output of playbook
-      ansible.builtin.command: systemctl status nginx
+      ansible.builtin.command: systemctl status {{item.name}}
       register: output
     - name: print output
       ansible.builtin.debug:
