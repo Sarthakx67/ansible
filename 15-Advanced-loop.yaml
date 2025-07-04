@@ -20,5 +20,5 @@
       register: output
     - name: print output
       ansible.builtin.debug:
-        msg: "{{output.CPU}}" 
+        msg: "{{output}}" 
     
